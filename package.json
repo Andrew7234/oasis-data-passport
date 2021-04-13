@@ -1,0 +1,24 @@
+{
+  "name": "oasis-data-passport",
+  "version": "1.0.0",
+  "description": "Browsing data passport",
+  "main": "lib/index.js",
+  "types: "lib/index.d.ts",
+  "repository": "https://github.com/Andrew7234/oasis-data-passport.git",
+  "author": "Oasis Labs <feedback@oasislabs.com>",
+  "type": "module",
+  "license": "MIT",
+  "private": true,
+  "engines": {
+    "node": ">=14.8"
+  },
+  "scripts": {
+    "build": "tsc -b"
+  },
+  "dependencies": {
+    "@oasislabs/parcel": "^1.0.0-beta.1"
+  },
+  "devDependencies": {
+    "typescript": "^4.2.4"
+  }
+}
