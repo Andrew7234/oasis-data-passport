@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Browsing data passport",
   "main": "lib/index.js",
-  "types: "lib/index.d.ts",
+  "types": "lib/index.d.ts",
   "repository": "https://github.com/Andrew7234/oasis-data-passport.git",
   "author": "Oasis Labs <feedback@oasislabs.com>",
   "type": "module",
