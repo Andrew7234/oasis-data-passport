@@ -2,8 +2,8 @@
   "name": "oasis-data-passport",
   "version": "1.0.0",
   "description": "Browsing data passport",
-  "main": "lib/index.js",
-  "types": "lib/index.d.ts",
+  "main": "lib/main.js",
+  "types": "lib/main.d.ts",
   "repository": "https://github.com/Andrew7234/oasis-data-passport.git",
   "author": "Oasis Labs <feedback@oasislabs.com>",
   "type": "module",
@@ -13,12 +13,17 @@
     "node": ">=14.8"
   },
   "scripts": {
-    "build": "tsc -b"
+    "build": "tsc -b",
+    "ttp": "cd ttp && python3 -m http.server --bind 127.0.0.1 8080",
+    "sample": "cd sample && webpack serve"
   },
   "dependencies": {
     "@oasislabs/parcel": "^1.0.0-beta.1"
   },
   "devDependencies": {
-    "typescript": "^4.2.4"
+    "typescript": "^4.2.4",
+    "webpack": "^5.33.2",
+    "webpack-cli": "^4.6.0",
+    "webpack-dev-server": "^3.11.2"
   }
 }
