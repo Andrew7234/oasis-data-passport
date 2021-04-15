@@ -1,6 +1,7 @@
 {
     "include": ["src"],
     "compilerOptions": {
+        "declaration": true,
         "esModuleInterop": true,
         "lib": ["esnext", "dom"],
         "module": "esnext",

@@ -1,44 +1,5 @@
 <!doctype html>
 <meta charset="utf-8">
 <body>
-<script>
-// TODO: Build Passport library and use that instead.
-// const passport = new Passport();
-const TTP_ORIGIN = 'http://localhost:8080';
-const sub = new Promise((resolve, reject) => {
-    window.addEventListener('message', (e) => {
-        if (e.origin !== TTP_ORIGIN) return;
-        switch (e.data.type) {
-            case 'oasis-data-passport-sub':
-                const sub = e.data.sub;
-                if (sub) {
-                    resolve(sub);
-                } else {
-                    resolve(null);
-                }
-                break;
-            default:
-                console.warn('unhandled message from ttp', e);
-        }
-    });
-    const f = document.createElement('iframe');
-    f.src = `${TTP_ORIGIN}/getsub.html`;
-    f.style.display = 'none';
-    f.onerror = (e) => {
-        reject(e);
-    };
-    // TODO: Maybe move to DOMContentLoaded to handle scripts included before <body>.
-    document.body.appendChild(f);
-});
-// TODO: Use logVisit for a more complete sample.
-// passport.logVisit(location.href, Date.now());
-(async () => {
-    try {
-        const subVal = await sub;
-        console.log('sub ok', subVal);
-    } catch (e) {
-        console.error(e);
-    }
-})();
-</script>
+<script src="main.js"></script>
 </body>
