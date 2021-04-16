@@ -1,8 +1,8 @@
-const PARCEL_AUTH_URL = 'https://auth.oasislabs.com';
+export const PARCEL_AUTH_URL = 'https://auth.oasislabs.com';
 // TODO: Set this.
-const SIGNIN_CLIENT_ID = 'CEfiao99HjM5K1dCUwxnshg';
-const REDIRECT_URI = new URL('callback.html', location.href).href;
-const BUILTIN_OIDC_CONFIG = {
+export const SIGNIN_CLIENT_ID = 'CEfiao99HjM5K1dCUwxnshg';
+export const REDIRECT_URI = new URL('callback.html', location.href).href;
+export const BUILTIN_OIDC_CONFIG = {
     authority: PARCEL_AUTH_URL,
     metadata: {
         issuer: PARCEL_AUTH_URL,

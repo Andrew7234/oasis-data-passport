@@ -2,6 +2,11 @@ const path = require('path');
 
 module.exports = {
     mode: 'development',
+    entry: {
+        index: './src/index.js',
+        callback: './src/callback.js',
+        getsub: './src/getsub.js',
+    },
     resolve: {
         fallback: {
             stream: false,
@@ -13,6 +18,6 @@ module.exports = {
     },
     devServer: {
         contentBase: 'dist',
-        port: 8081,
+        port: 8080,
     },
 };

@@ -8,7 +8,7 @@ Then, sites communicate with an iframe from this origin to retrieve the user ID.
 Run this locally:
 
 ```sh
-python3 -m http.server --bind 127.0.0.1 8080
+npx webpack serve
 ```
 
 Then visit http://localhost:8080/.
