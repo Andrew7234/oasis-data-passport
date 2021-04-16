@@ -11,6 +11,7 @@ export default class Passport {
                 case 'oasis-data-passport-sub':
                     const sub = e.data.sub;
                     if (sub) {
+                        // TODO: This isn't right.
                         resolve(new Parcel(sub).getCurrentIdentity());
                     } else {
                         resolve(null);

@@ -14,13 +14,14 @@
   },
   "scripts": {
     "build": "tsc -b",
-    "ttp": "cd ttp && python3 -m http.server --bind 127.0.0.1 8080",
+    "ttp": "cd ttp && webpack serve",
     "sample": "cd sample && webpack serve"
   },
   "dependencies": {
     "@oasislabs/parcel": "^1.0.0-beta.1"
   },
   "devDependencies": {
+    "oidc-client": "^1.11.5",
     "typescript": "^4.2.4",
     "webpack": "^5.33.2",
     "webpack-cli": "^4.6.0",
