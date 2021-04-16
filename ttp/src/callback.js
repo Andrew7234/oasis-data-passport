@@ -9,6 +9,7 @@ const userManager = new oidc.UserManager(BUILTIN_OIDC_CONFIG);
 (async () => {
     try {
         await userManager.signinCallback();
+        const user = await userManager.getUser();
         console.log('sign in fulfilled'); // %%%
     } catch (e) {
         console.error(e);

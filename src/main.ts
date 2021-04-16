@@ -9,10 +9,12 @@ export default class Passport {
             if (e.origin !== TTP_ORIGIN) return;
             switch (e.data.type) {
                 case 'oasis-data-passport-sub':
-                    const sub = e.data.sub;
-                    if (sub) {
-                        // TODO: This isn't right.
-                        resolve(new Parcel(sub).getCurrentIdentity());
+                    console.log('message', e.data);
+                    const access_token = e.data.access_token;
+                    if (access_token) {
+                        console.log("ptoey");
+                        const parcelPassport = new Parcel(access_token);
+                        resolve(parcelPassport.getCurrentIdentity());
                     } else {
                         resolve(null);
                     }

@@ -13,7 +13,7 @@ export const BUILTIN_OIDC_CONFIG = {
     client_id: SIGNIN_CLIENT_ID,
     redirect_uri: REDIRECT_URI,
     response_type: 'code',
-    scope: 'openid',
+    scope: ['openid', 'parcel.identity.read'],
     filterProtocolClaims: false,
     loadUserInfo: false,
     extraQueryParams: {
