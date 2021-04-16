@@ -1,6 +1,4 @@
 import oidc from 'oidc-client';
-import Parcel from '@oasislabs/parcel';
-import {PODIdentity} from '@oasislabs/parcel/lib/identity.js';
 
 import {BUILTIN_OIDC_CONFIG} from './consts.js';
 
@@ -11,16 +9,12 @@ const userManager = new oidc.UserManager(BUILTIN_OIDC_CONFIG);
 (async () => {
     try {
         const user = await userManager.getUser();
-        const sub = user?.profile?.sub;
-        // TODO: We may have to do things here, on the origin where we're logged in.
-        if (sub) {
-            const identity = await new Parcel(sub).getCurrentIdentity();
-            console.log('inside getsub identity ok', identity); // %%%
-        }
-        parent.postMessage({
+        console.log('getsub user', user); // %%%
+        parent.postMessage(/** @type {import('./../..').MessageSub} */ ({
             type: 'oasis-data-passport-sub',
-            sub,
-        }, '*');
+            sub: user?.profile?.sub,
+            access_token: user?.access_token,
+        }), '*');
     } catch (e) {
         console.error(e);
     }

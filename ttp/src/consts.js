@@ -2,7 +2,7 @@ export const PARCEL_AUTH_URL = 'https://auth.oasislabs.com';
 // TODO: Set this.
 export const SIGNIN_CLIENT_ID = 'CEfiao99HjM5K1dCUwxnshg';
 export const REDIRECT_URI = new URL('callback.html', location.href).href;
-export const BUILTIN_OIDC_CONFIG = {
+export const BUILTIN_OIDC_CONFIG = /** @type {oidc.UserManagerSettings} */ ({
     authority: PARCEL_AUTH_URL,
     metadata: {
         issuer: PARCEL_AUTH_URL,
@@ -13,7 +13,7 @@ export const BUILTIN_OIDC_CONFIG = {
     client_id: SIGNIN_CLIENT_ID,
     redirect_uri: REDIRECT_URI,
     response_type: 'code',
-    scope: 'openid',
+    scope: 'openid parcel.identity.read',
     filterProtocolClaims: false,
     loadUserInfo: false,
     extraQueryParams: {
@@ -22,4 +22,4 @@ export const BUILTIN_OIDC_CONFIG = {
     extraTokenParams: {
         audience: 'https://api.oasislabs.com/parcel',
     },
-};
+});
