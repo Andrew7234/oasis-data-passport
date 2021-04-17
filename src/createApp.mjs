@@ -2,13 +2,26 @@
 import Parcel from '@oasislabs/parcel';
 
 export async function createApp() {
-  const newUserParcel = new Parcel(your auth token);
+  const tokenSourcePassport = {
+    clientId: 'CGq8spSP3Z5fFPavKoFBphc',
+    privateKey: {
+      kid: "server-client",
+      use: "sig",
+      kty: "EC",
+      crv: "P-256",
+      alg: "ES256",
+      x: "Z_wpBvEoDfbw9pggajLlk2R6KpEg6Sd5_41LiGE31Rg",
+      y: "ayph6_9PQUuA5SiG8PChZd_n1BLRtkAes2bjvn31v-s",
+      d: "meoiREIwcYGslCNZFNoqnBn1x4xdPER-IFh539TI7As"
+    },
+  };
+  const newUserParcel = new Parcel(tokenSourcePassport);
 
   const app = await newUserParcel.createApp({
     name: 'Data Passport',
     organization: 'WADC',
-    shortDescription: 'Archive web pages from your browser',
-    extendedDescription: 'Archive web pages from your browser',
+    shortDescription: 'Ditch cookies and own your browsing data',
+    extendedDescription: 'Ditch cookies and own your browsing data',
     homepageUrl: 'https://github.com/Andrew7234/oasis-data-passport',
     privacyPolicy: 'https://github.com/Andrew7234/oasis-data-passport',
     termsAndConditions: 'https://github.com/Andrew7234/oasis-data-passport',
@@ -21,7 +34,7 @@ export async function createApp() {
     admins: [...new Set([
       (await newUserParcel.getCurrentIdentity()).id,
       'I32QuMCAFRuKmY3QTH2awAC', // Andy
-    //   'ISkGgYC5j1LZYP1J4DcH53a', // Warren
+      'I4ro8P3fuChEaGnWyxtcfrc', // Warren
     ])],
     collaborators: [],
     inviteOnly: false,
@@ -43,7 +56,7 @@ export async function createApp() {
 
   const client = await newUserParcel.createClient(app.id, {
     name: 'frontend canActOnBehalfOfUsers',
-    redirectUris: ['http://localhost:8080/callback'],
+    redirectUris: ['http://localhost:8080/callback.html'],
     postLogoutRedirectUris: [],
     // @ts-expect-error Bad types
     canActOnBehalfOfUsers: true,

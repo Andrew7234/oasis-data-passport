@@ -1,9 +1,13 @@
 import oidc from 'oidc-client';
 import jwt_decode from 'jwt-decode';
 import Parcel from '@oasislabs/parcel';
-import {PODIdentity} from '@oasislabs/parcel/lib/identity.js';
+// import {PODIdentity} from '@oasislabs/parcel/lib/identity.js';
 
 import {BUILTIN_OIDC_CONFIG} from './consts.js';
+
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
 
 oidc.Log.logger = console;
 oidc.Log.level = oidc.Log.DEBUG;
@@ -22,10 +26,11 @@ const userManager = new oidc.UserManager(BUILTIN_OIDC_CONFIG);
             const identity = await new Parcel(user.access_token).getCurrentIdentity();
             console.log('inside getsub identity ok', identity); // %%%
         }
-        parent.postMessage({
+        parent.postMessage(/** @type {import('./../..').MessageSub} */ ({
             type: 'oasis-data-passport-sub',
-            id_token,
-        }, '*');
+            sub: user?.profile?.sub,
+            access_token: user?.access_token,
+        }), '*');
     } catch (e) {
         console.error(e);
     }
