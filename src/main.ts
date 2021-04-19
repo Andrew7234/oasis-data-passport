@@ -70,10 +70,7 @@ export default class Passport {
                     timestamp,
                 } as DocVisit;
                 console.log('log visit uploading', docVisit); // %%%
-                const parcel = new Parcel({
-                    clientId: secrets.UPLOADER_CLIENT_ID,
-                    privateKey: secrets.UPLOADER_PRIVATE_KEY as PrivateJWK,
-                });
+                const parcel = new Parcel(subData.access_token);
                 const appid = await parcel.getCurrentIdentity();
                 console.log('server side client identity', appid); // %%%
                 const upload = parcel.uploadDocument(JSON.stringify(docVisit), {
