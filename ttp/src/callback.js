@@ -9,6 +9,9 @@ const userManager = new oidc.UserManager(BUILTIN_OIDC_CONFIG);
 (async () => {
     try {
         await userManager.signinCallback();
+        const user = await userManager.getUser();
+        console.log(`id_token: ${user.id_token}`);
+        console.log(`access token: ${user.access_token}`);
         console.log('sign in fulfilled'); // %%%
     } catch (e) {
         console.error(e);
