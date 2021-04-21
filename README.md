@@ -23,7 +23,7 @@ cd ttp
 npx webpack serve
 ```
 
-Then, start the sample website on http://localhost:8080`
+Then, start the sample website on http://localhost:8080
 ```sh
 cd ../sample
 npx webpack serve
@@ -36,4 +36,5 @@ npx webpack serve
 5. Accept the cookies on the page, which will then upload a log of your browser visit
    along with any cookie data to Oasis.
 6. Visit any other sample sites, or refresh the page and create more logs.
-7. Visit https://steward.oasislabs.com and view your datasets there.
+7. Visit https://steward.oasislabs.com/apps/A3D4dqRVT1KsGWo3sQRhyMY/join and accept the terms. You should now 
+   be able to view your data under the `Your Data` tab
