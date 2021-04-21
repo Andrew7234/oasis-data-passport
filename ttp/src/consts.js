@@ -1,7 +1,7 @@
 import {WebStorageStateStore} from 'oidc-client';
 export const PARCEL_AUTH_URL = 'https://auth.oasislabs.com';
 // TODO: Set this.
-export const SIGNIN_CLIENT_ID = 'CUX6xbzcLUxZ8LFdCr9boPr';
+export const SIGNIN_CLIENT_ID = 'CDdAqir52V4tRNEQUhEdGiW';
 export const REDIRECT_URI = new URL('callback.html', location.href).href;
 export const BUILTIN_OIDC_CONFIG = /** @type {oidc.UserManagerSettings} */ ({
     authority: PARCEL_AUTH_URL,
