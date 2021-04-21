@@ -3,7 +3,7 @@ import Parcel, {AppId, IdentityId, PrivateJWK} from "@oasislabs/parcel";
 // TODO: In the real world this will have some public domain.
 const TTP_ORIGIN = 'http://localhost:8080';
 
-const APP_ID = 'AJwJbEwW9mpCLf8rCD5kfNY' as AppId;
+const APP_ID = 'A3D4dqRVT1KsGWo3sQRhyMY' as AppId;
 
 export const MESSAGE_TYPE_SUB = 'oasis-data-passport-sub';
 
@@ -28,14 +28,6 @@ export default class Passport {
             switch (e.data.type) {
                 case 'oasis-data-passport-sub':
                     console.log('message', e.data);
-                    // const access_token = e.data.access_token;
-                    // if (access_token) {
-                    //     console.log("ptoey");
-                    //     const parcelPassport = new Parcel(access_token);
-                    //     resolve(parcelPassport.getCurrentIdentity());
-                    // } else {
-                    //     resolve(null);
-                    // }
                     resolve(e.data);
                     break;
                 default:

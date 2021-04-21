@@ -18,7 +18,7 @@ export async function createApp() {
   const newUserParcel = new Parcel(tokenSourcePassport);
 
   const app = await newUserParcel.createApp({
-    name: 'Data Passport',
+    name: 'Browsing Passport',
     organization: 'WADC',
     shortDescription: 'Ditch cookies and own your browsing data',
     extendedDescription: 'Ditch cookies and own your browsing data',
@@ -28,7 +28,7 @@ export async function createApp() {
     logoUrl: 'https://animesoldier.com/wp-content/uploads/2019/04/tensei-slime.jpg',
 
     invitationText: 'Join Oasis Data Passport!',
-    acceptanceText: 'Thanks for the data!',
+    acceptanceText: 'Welcome to the Oasis!',
     rejectionText: '🙁',
 
     admins: [...new Set([
@@ -51,8 +51,35 @@ export async function createApp() {
       ],
     },
 
-    published: true, // Don't have app.createPermission, we use createGrant on share
+    published: false, // Don't have app.createPermission, we use createGrant on share
   });
+
+  console.log(`Created app with id ${app.id}`);
+
+  const passportPermission = await newUserParcel.createPermission(app.id, {
+    grants: [{
+      granter: 'participant',
+        grantee: 'app',
+        condition: {
+          'document.details.tags': {
+            $any: { $eq: `to-app-${app.id}` },
+          },
+        },
+      },
+    ],
+    name: 'Store cookie data in Browsing Passport',
+    description: "Websites use cookies to store user-specific data that can be used to track users accrue information that is then sold to third party advertisers. Browsing Passport remedies this by having websites store cookie data in the user's Parcel account, enabling the user to take control of their browsing profile and choose what to share.",
+    allowText: 'Great!',
+    denyText: 'Awww... ok',
+  });
+
+  console.log(`Created permission for app: ${passportPermission.id}`);
+
+  const publishedApp = await newUserParcel.updateApp(app.id, {...app,
+    published: true,
+  });
+
+  console.log(`Published app ${publishedApp.id}`);
 
   const client = await newUserParcel.createClient(app.id, {
     name: 'frontend canActOnBehalfOfUsers',
