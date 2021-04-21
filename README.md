@@ -17,7 +17,7 @@ There are two sites involved in the demo: a trusted third party origin (ttp) and
 The trusted third party serves as the trusted point for login with Oasis, whereas the sample site
 represents how a typical site would implement and utilize Passport.
 
-First, start the ttp which will listen on http://localhost:8081
+First, start the ttp which will listen on http://localhost:8080
 ```sh
 cd ttp
 npx webpack serve
