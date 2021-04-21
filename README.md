@@ -19,8 +19,7 @@ represents how a typical site would implement and utilize Passport.
 
 First, start the ttp which will listen on http://localhost:8080
 ```sh
-cd ttp
-npx webpack serve
+npm run ttp
 ```
 
 Then, start the sample website on http://localhost:8080
