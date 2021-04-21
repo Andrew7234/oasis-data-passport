@@ -22,7 +22,7 @@ First, start the ttp which will listen on http://localhost:8080
 npm run ttp
 ```
 
-Then, start the sample website on http://localhost:8080
+Then, start the sample website on http://localhost:8081
 ```sh
 cd ../sample
 npx webpack serve
