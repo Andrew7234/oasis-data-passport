@@ -27,7 +27,7 @@ Then, start the sample website on http://localhost:8081
 npm run sample
 ```
 
-1. Visit the ttp at http://localhost:8081. 
+1. Visit the ttp at http://localhost:8080.
 2. Login to Oasis and follow the prompts until you get to the landing page.
 3. Visit the sample site at http://localhost:8080.
 4. Optional: open the javascript console.
