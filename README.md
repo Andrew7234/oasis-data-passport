@@ -24,8 +24,7 @@ npm run ttp
 
 Then, start the sample website on http://localhost:8081
 ```sh
-cd ../sample
-npx webpack serve
+npm run sample
 ```
 
 1. Visit the ttp at http://localhost:8081. 
